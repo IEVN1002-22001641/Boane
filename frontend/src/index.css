@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BOANE Design System - Clean, Modern, Turquoise + White */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Base colors - Clean white foundation */
+    --background: 0 0% 100%;
+    --foreground: 210 20% 15%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+
+    /* Primary - Turquoise (frescura, confianza, calma) */
+    --primary: 174 62% 47%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 174 62% 92%;
+    --primary-dark: 174 70% 35%;
+
+    /* Secondary - Soft gray-blue */
+    --secondary: 200 20% 96%;
+    --secondary-foreground: 210 20% 25%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 200 15% 97%;
+    --muted-foreground: 210 15% 50%;
+
+    /* Accent - Light turquoise glow */
+    --accent: 174 50% 95%;
+    --accent-foreground: 174 70% 30%;
+
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 200 20% 90%;
+    --input: 200 20% 90%;
+    --ring: 174 62% 47%;
+
+    /* Radius - Friendly rounded corners */
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 210 20% 25%;
+    --sidebar-primary: 174 62% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 174 50% 95%;
+    --sidebar-accent-foreground: 174 70% 30%;
+    --sidebar-border: 200 20% 92%;
+    --sidebar-ring: 174 62% 47%;
+
+    /* Custom BOANE tokens */
+    --boane-turquoise: 174 62% 47%;
+    --boane-turquoise-light: 174 50% 92%;
+    --boane-turquoise-dark: 174 70% 35%;
+    --boane-slate: 210 20% 25%;
+    --boane-gray: 210 15% 50%;
+    --boane-soft: 200 20% 98%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(174 62% 47%) 0%, hsl(180 55% 55%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(174 50% 98%) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(210 20% 10% / 0.6) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(210 20% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(210 20% 15% / 0.08), 0 2px 4px -2px hsl(210 20% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(210 20% 15% / 0.08), 0 4px 6px -4px hsl(210 20% 15% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(210 20% 15% / 0.1), 0 8px 10px -6px hsl(210 20% 15% / 0.05);
+    --shadow-turquoise: 0 8px 30px -4px hsl(174 62% 47% / 0.35);
+  }
+
+  .dark {
+    --background: 210 25% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 25% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 25% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 174 55% 50%;
+    --primary-foreground: 210 25% 8%;
+    --primary-light: 174 40% 20%;
+    --primary-dark: 174 55% 60%;
+
+    --secondary: 210 20% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 210 20% 15%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 174 40% 15%;
+    --accent-foreground: 174 55% 70%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 18%;
+    --input: 210 20% 18%;
+    --ring: 174 55% 50%;
+
+    --sidebar-background: 210 25% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 174 55% 50%;
+    --sidebar-primary-foreground: 210 25% 8%;
+    --sidebar-accent: 174 40% 15%;
+    --sidebar-accent-foreground: 174 55% 70%;
+    --sidebar-border: 210 20% 18%;
+    --sidebar-ring: 174 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero button styles */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-full transition-all duration-300;
+    box-shadow: var(--shadow-turquoise);
+  }
+
+  .btn-hero:hover {
+    @apply scale-105;
+    box-shadow: 0 12px 40px -4px hsl(174 62% 47% / 0.45);
+  }
+
+  /* Card with gradient */
+  .card-gradient {
+    background: var(--gradient-card);
+    @apply rounded-2xl border border-border/50;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Turquoise accent underline */
+  .accent-underline {
+    @apply relative;
+  }
+
+  .accent-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full;
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Fade in up animation */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Mobile device frame */
+  .device-frame {
+    @apply relative rounded-[2.5rem] bg-slate-900 p-3;
+    box-shadow: 
+      0 0 0 4px hsl(210 20% 20%),
+      var(--shadow-xl);
+  }
+
+  .device-screen {
+    @apply rounded-[2rem] overflow-hidden bg-background;
+  }
+
+  /* Status bar for mobile mockups */
+  .status-bar {
+    @apply flex items-center justify-between px-6 py-2 text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
